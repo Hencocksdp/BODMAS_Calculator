@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Full_clac.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Calculator</h1>
+    <div class="calculator">
+        <img src="casio.png" id="brand">
+
+
+
+        <textarea rows="2" cols="35" id="screen" readonly>
+            </textarea>
+        <br>
+        <form name="calc">
+            <div id="entries">
+                <div style="padding-left: 1.8%;">
+                    <input type="button" value="1">
+                    <input type="button" value="2">
+                    <input type="button" value="3">
+                    <input type="button" value="+">
+                </div>
+                <br>
+                <div>
+                    <input type="button" value="4">
+                    <input type="button" value="5">
+                    <input type="button" value="6">
+                    <input type="button" value="-">
+                </div>
+                <br>
+                <div>
+                    <input type="button" value="7">
+                    <input type="button" value="8">
+                    <input type="button" value="9">
+                    <input type="button" value="x">
+                </div>
+                <br>
+                <div>
+                    <input type="button" value="/">
+                    <input type="button" value="0">
+                    <input type="button" value=".">
+                    <input type="button" value="=">
+                </div>
+
+            </div>
+            <br>
+
+            <input type="button" value="AC" id="clear">
+
+
+        </form>
+
+
+
+    </div>
+
+    <script>
+        let screen = document.getElementById("screen");
+
+        // let tag = document.getElementsById("form");
+        let buttons = document.querySelectorAll("input[type='button']");
+        console.log(buttons);
+        let state = [];
+        // let temp = 0;
+        // for (const item of buttons) {
+
+        //     item.addEventListener('click', (item) => {
+        //         buttonText = item.target.value;
+        //         if (buttonText == 'Clear All') {
+        //             screen.value = '';
+        //             state = [];
+        //         } else if (buttonText == "=") {
+        //             state.push(temp);
+        //             screen.value = calculate(state);
+        //             state = [];
+        //         } else if (isNaN(buttonText)) {
+        //             screen.value += buttonText;
+        //             state.push(temp);
+        //             state.push(buttonText);
+        //             temp = 0;
+        //         } else {
+        //             screen.value += buttonText;
+        //             temp = (temp * 10) + Number(buttonText);
+        //         }
+
+        //     });
+        //     // console.log('hello');
+
+        // }
+
+
+
+
+        let temp = 0;
+        // let decflag = false;
+        let deccount = 0;
+        for (const item of buttons) {
+
+            item.addEventListener('click', (item) => {
+                buttonText = item.target.value;
+                if (buttonText == 'AC') {
+                    screen.value = '';
+                    state = [];
+                    deccount = 0;
+                    temp = 0;
+                } else if (buttonText == "=") {
+                    state.push(temp);
+                    let result = calculate(state);
+                    screen.value += '\n' + result;
+                    state = [];
+                    deccount = 0;
+                    temp = Number(result);
+                    document.getElementById("screen").scrollTop = document.getElementById("screen").scrollHeight;
+                } else if (buttonText == '.') {
+                    if (deccount >= 1) {
+
+                    } else {
+                        screen.value += buttonText;
+                        deccount++;
+
+                    }
+
+                } else if (isNaN(buttonText)) {
+                    screen.value += buttonText;
+                    state.push(temp);
+                    state.push(buttonText);
+                    temp = 0;
+                    deccount = 0;
+                } else {
+                    screen.value += buttonText;
+                    if (deccount) {
+                        temp += Number(buttonText) / Math.pow(10, deccount);
+                        deccount++;
+                    } else
+                        temp = (temp * 10) + Number(buttonText);
+                }
+
+            });
+            // console.log('hello');
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function calculate(str) {
+
+            st = str;
+            for (let i = 0; i < st.length; i++) {
+
+                if (st[i] == '/') {
+
+                    st[i - 1] = (Number(st[i - 1]) / Number(st[i + 1])).toFixed(2).toString();
+                    st.splice(i, 2);
+                    i = i - 1;
+                }
+                if (st[i] == 'x') {
+
+                    st[i - 1] = (Number(st[i - 1]) * Number(st[i + 1])).toFixed(2).toString();
+                    st.splice(i, 2);
+                    i = i - 1;
+                }
+            }
+            for (let i = 0; i < st.length; i++) {
+
+                if (st[i] == '+') {
+
+                    st[i - 1] = (Number(st[i - 1]) + Number(st[i + 1])).toFixed(2).toString();
+                    st.splice(i, 2);
+                    i = i - 1;
+                }
+                if (st[i] == '-') {
+
+                    st[i - 1] = (Number(st[i - 1]) - Number(st[i + 1])).toFixed(2).toString();
+                    st.splice(i, 2);
+                    i = i - 1;
+                }
+            }
+
+            if (Math.ceil(st[0]) == st[0])
+                st[0] = Math.ceil(st[0]);
+
+            // if (isNaN(st[0])) return "Invalid Syntax!";
+
+            return st[0];
+            // return 'abcd';
+
+        }
+    </script>
+
+</body>
+
+</html>

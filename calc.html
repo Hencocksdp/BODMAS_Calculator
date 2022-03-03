@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 8% 0%;
+            font-size: 15px;
+            background-color: rgba(251, 186, 19, 255);
+        }
+        
+        form input:hover {
+            background-color: rgb(180, 32, 32);
+        }
+        
+        .calc {
+            /* max-width: 60%; */
+            margin: auto;
+        }
+        
+        #num1,
+        #num2 {
+            text-align: center;
+            width: 30%;
+            margin: auto;
+        }
+        
+        form input {
+            width: 5%;
+            border-radius: 50%;
+            margin: 0% 1.5%;
+            color: white;
+            background-color: rgb(255, 72, 72);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="calc">
+        <input type="text" placeholder="Enter the First Number" id="num1">
+        <br><br>
+        <input type="text" placeholder="Enter the Second Number" id="num2">
+        <p id="result"></p>
+        <br><br>
+
+        <form>
+            <input type="button" value="+" onclick="Sum()">
+            <input type="button" value="-" onclick="Diff()">
+            <input type="button" value="*" onclick="Product()">
+            <input type="button" value="/" onclick="divide()">
+        </form>
+
+
+
+
+    </div>
+
+
+    <script>
+        function Sum() {
+            let n1 = Number(document.getElementById("num1").value);
+            let n2 = Number(document.getElementById("num2").value);
+
+            sum = (n1 + n2).toPrecision(5);
+            document.getElementById("result").innerHTML = sum;
+
+
+        }
+
+        function Diff() {
+            n1 = Number(document.getElementById("num1").value);
+            n2 = Number(document.getElementById("num2").value);
+            diff = (n1 - n2).toPrecision(5);
+            document.getElementById("result").innerHTML = diff;
+
+        }
+
+        function Product() {
+            n1 = Number(document.getElementById("num1").value);
+            n2 = Number(document.getElementById("num2").value);
+            product = (n1 * n2).toPrecision(5);
+            document.getElementById("result").innerHTML = product;
+
+        }
+
+        function divide() {
+            n1 = Number(document.getElementById("num1").value);
+            n2 = Number(document.getElementById("num2").value);
+            by = (n1 / n2).toPrecision(5);
+            document.getElementById("result").innerHTML = by;
+
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(211, 234, 255);
+}
+
+.formstyle {
+    text-align: center;
+}
+
+input {
+    border: 2px solid rgb(133, 133, 133);
+    height: 50px;
+    width: 8%;
+    border-radius: 12px;
+    margin: 0px 1.5%;
+    /* column-gap: 20px; */
+}
+
+input:hover {
+    background-color: rgb(185, 185, 185);
+}
+
+#calc {
+    width: 48%;
+}
+
+#clear {
+    width: 20%;
+}

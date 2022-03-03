@@ -1,0 +1,94 @@
+/* .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: auto; */
+
+
+/* border: 2px solid black; */
+
+
+/* margin-left: 25%; */
+
+
+/* width: ; */
+
+.calculator {
+    /* background-color: rgb(103, 234, 252); */
+    /* margin-left: 20%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    align-items: center;
+    margin: auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    max-width: 345px;
+    padding: 10px 0px 10px 0px;
+}
+
+@font-face {
+    font-family: ss;
+    src: url(seven_segment/Seven\ Segment.ttf);
+}
+
+#screen {
+    font-size: 33px;
+    text-align: right;
+    /* margin-left: 7%; */
+    margin: auto;
+    /* max-width: 306px;
+    min-width: 195px; */
+    padding-right: 8px;
+    height: 4.3rem;
+    width: 90%;
+    /* border: 2px solid black; */
+    resize: none;
+    font-family: ss;
+    font-style: bold;
+    border-radius: 10px;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+    -moz-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+}
+
+#entries {
+    display: flex;
+}
+
+input[type='button'] {
+    width: 80%;
+    /* min-width: 8%; */
+    /* max-width: 10%; */
+    background-color: rgb(115, 236, 186);
+    color: white;
+    margin: 4px;
+    font-size: 18px;
+    border: none;
+    /* margin: auto; */
+    cursor: pointer;
+    /* border: 1px solid black; */
+    text-align: center;
+    padding: 17px 10%;
+    border-radius: 20%;
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+    -moz-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+}
+
+#clear {
+    width: auto;
+    border-radius: 20%;
+    margin-left: 37.7%;
+    max-width: 30%;
+}
+
+#brand {
+    align-self: flex-start;
+    margin: 4% 0 6% 5%;
+    width: 30%;
+}
