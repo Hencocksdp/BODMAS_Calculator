@@ -54,7 +54,7 @@ input[type='button'] {
     text-align: center;
     padding: 17px 10%;
     border-radius: 20%;
-    box-shadow: 3px 3px #999;
+    box-shadow: 3px 3px rgb(86, 212, 160);
 }
 
 #clear {
