@@ -38,7 +38,7 @@
 #entries {
     display: flex;
     outline-offset: 4px;
-    padding: 16px 0px 0px 0px;
+    padding: 16px 3px 16px 0px;
     border-radius: 10%;
     background-color: rgb(232, 237, 241);
 }
