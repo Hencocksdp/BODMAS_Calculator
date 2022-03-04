@@ -23,37 +23,37 @@
         <form name="calc">
             <div id="entries">
                 <div style="padding-left: 1.8%;">
-                    <input type="button" value="1">
-                    <input type="button" value="2">
-                    <input type="button" value="3">
-                    <input type="button" value="+">
+                    <input type="button" value="1" class="btn">
+                    <input type="button" value="2" class="btn">
+                    <input type="button" value="3" class="btn">
+                    <input type="button" value="+" class="btn">
                 </div>
                 <br>
                 <div>
-                    <input type="button" value="4">
-                    <input type="button" value="5">
-                    <input type="button" value="6">
-                    <input type="button" value="-">
+                    <input type="button" value="5" class="btn">
+                    <input type="button" value="4" class="btn">
+                    <input type="button" value="6" class="btn">
+                    <input type="button" value="-" class="btn">
                 </div>
                 <br>
                 <div>
-                    <input type="button" value="7">
-                    <input type="button" value="8">
-                    <input type="button" value="9">
-                    <input type="button" value="x">
+                    <input type="button" value="7" class="btn">
+                    <input type="button" value="8" class="btn">
+                    <input type="button" value="9" class="btn">
+                    <input type="button" value="x" class="btn">
                 </div>
                 <br>
                 <div>
-                    <input type="button" value="/">
-                    <input type="button" value="0">
-                    <input type="button" value=".">
-                    <input type="button" value="=">
+                    <input type="button" value="/" class="btn">
+                    <input type="button" value="0" class="btn">
+                    <input type="button" value="." class="btn">
+                    <input type="button" value="=" class="btn">
                 </div>
 
             </div>
             <br>
 
-            <input type="button" value="AC" id="clear">
+            <input type="button" value="AC" id="clear" class="btn">
 
 
         </form>
@@ -65,42 +65,13 @@
     <script>
         let screen = document.getElementById("screen");
 
-        // let tag = document.getElementsById("form");
+
         let buttons = document.querySelectorAll("input[type='button']");
         console.log(buttons);
         let state = [];
-        // let temp = 0;
-        // for (const item of buttons) {
-
-        //     item.addEventListener('click', (item) => {
-        //         buttonText = item.target.value;
-        //         if (buttonText == 'Clear All') {
-        //             screen.value = '';
-        //             state = [];
-        //         } else if (buttonText == "=") {
-        //             state.push(temp);
-        //             screen.value = calculate(state);
-        //             state = [];
-        //         } else if (isNaN(buttonText)) {
-        //             screen.value += buttonText;
-        //             state.push(temp);
-        //             state.push(buttonText);
-        //             temp = 0;
-        //         } else {
-        //             screen.value += buttonText;
-        //             temp = (temp * 10) + Number(buttonText);
-        //         }
-
-        //     });
-        //     // console.log('hello');
-
-        // }
-
-
-
 
         let temp = 0;
-        // let decflag = false;
+        let opcount = 0;
         let deccount = 0;
         for (const item of buttons) {
 
@@ -110,13 +81,15 @@
                     screen.value = '';
                     state = [];
                     deccount = 0;
+                    opcount = 0;
                     temp = 0;
                 } else if (buttonText == "=") {
                     state.push(temp);
                     let result = calculate(state);
-                    screen.value += '\n' + result;
+                    screen.value += '\n' + '= ' + result;
                     state = [];
                     deccount = 0;
+                    opcount = 0;
                     temp = Number(result);
                     document.getElementById("screen").scrollTop = document.getElementById("screen").scrollHeight;
                 } else if (buttonText == '.') {
@@ -129,11 +102,18 @@
                     }
 
                 } else if (isNaN(buttonText)) {
-                    screen.value += buttonText;
-                    state.push(temp);
-                    state.push(buttonText);
-                    temp = 0;
-                    deccount = 0;
+
+                    if (opcount >= 1) {
+
+
+                    } else {
+                        screen.value += buttonText;
+                        state.push(temp);
+                        state.push(buttonText);
+                        opcount++;
+                        temp = 0;
+                        deccount = 0;
+                    }
                 } else {
                     screen.value += buttonText;
                     if (deccount) {

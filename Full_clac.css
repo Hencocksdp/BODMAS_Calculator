@@ -1,30 +1,13 @@
-/* .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* margin: auto; */
-
-
-/* border: 2px solid black; */
-
-
-/* margin-left: 25%; */
-
-
-/* width: ; */
-
 .calculator {
-    /* background-color: rgb(103, 234, 252); */
-    /* margin-left: 20%; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     align-items: center;
     margin: auto;
-    border: 2px solid black;
-    border-collapse: collapse;
+    border: 1.5px solid grey;
+    box-shadow: 3.8px 5px rgb(56, 55, 55);
+    border-radius: 20px;
+    background-color: aliceblue;
     max-width: 345px;
     padding: 10px 0px 10px 0px;
 }
@@ -37,14 +20,10 @@
 #screen {
     font-size: 33px;
     text-align: right;
-    /* margin-left: 7%; */
     margin: auto;
-    /* max-width: 306px;
-    min-width: 195px; */
     padding-right: 8px;
     height: 4.3rem;
     width: 90%;
-    /* border: 2px solid black; */
     resize: none;
     font-family: ss;
     font-style: bold;
@@ -52,32 +31,30 @@
     border: none;
     overflow: hidden;
     box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
-    -webkit-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 0px 0px 50px -5px rgba(0, 0, 0, 0.21);
     -moz-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
 }
 
 #entries {
     display: flex;
+    outline-offset: 4px;
+    padding: 16px 0px 0px 0px;
+    border-radius: 10%;
+    background-color: rgb(232, 237, 241);
 }
 
 input[type='button'] {
     width: 80%;
-    /* min-width: 8%; */
-    /* max-width: 10%; */
     background-color: rgb(115, 236, 186);
     color: white;
     margin: 4px;
     font-size: 18px;
     border: none;
-    /* margin: auto; */
     cursor: pointer;
-    /* border: 1px solid black; */
     text-align: center;
     padding: 17px 10%;
     border-radius: 20%;
-    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
-    -webkit-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
-    -moz-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.21);
+    box-shadow: 3px 3px #999;
 }
 
 #clear {
@@ -91,4 +68,18 @@ input[type='button'] {
     align-self: flex-start;
     margin: 4% 0 6% 5%;
     width: 30%;
+}
+
+span {
+    padding-bottom: 16px;
+}
+
+.btn:active {
+    background-color: rgb(115, 236, 186);
+    box-shadow: 2px 2px #666;
+    transform: translateY(2px);
+}
+
+.btn:hover {
+    background-color: #ace4b1;
 }
